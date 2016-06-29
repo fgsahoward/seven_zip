@@ -39,7 +39,7 @@ action :extract do
     cmd << " -o\"#{win_friendly_path(@new_resource.path)}\""
     cmd << " \"#{local_source}\""
     Chef::Log.debug(cmd)
-    shell_out!(cmd)
+    shell_out!(cmd, timeout => @new_resource.timeout)
   end
 end
 
